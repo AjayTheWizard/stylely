@@ -1,25 +1,49 @@
-# postcss-short-css
+# Stylely
 
-[PostCSS] plugin with CSS Shorthand Syntax inspired by TailwindCSS.
+**The Next Generation StyleSheets**
+
+- **_No More Media Queries_**
+- **_No More Pseudo Selectors_**
+- **_New Shorthand CSS Properties_**
+
+> Stylely is inspired by TailwindCSS, Chakra UI and Open Props
+
+Read [Official Docmentation](https://stylely-docs.vercel.app/) to know more about it.
+
+## Demo
 
 ```css
 .foo {
-  focus-bg: red;
+  bg: white;
+  bd: 1px solid black;
+  color: black;
+  focus-bg: black;
+  focus-bd-color: 1px solid white;
+  focus-color: white;
 }
 ```
+
+would be converted into,
 
 ```css
+.foo {
+  background: white;
+  border: 1px solid black;
+  color: black;
+}
 .foo:focus {
-  background: red;
+  background: black;
+  border-color: white;
+  color: white;
 }
 ```
 
-## Usage
+## Installation
 
 **Step 1:** Install plugin:
 
-```sh
-npm install --save-dev postcss stylely
+```
+npm i -D postcss stylely
 ```
 
 **Step 2:** Check you project for existed PostCSS config: `postcss.config.js`
@@ -31,12 +55,8 @@ and set this plugin in settings.
 
 **Step 3:** Add the plugin to plugins list:
 
-```diff
+```js
 module.exports = {
-  plugins: [
-   require('stylely'),
-  ]
-}
+  plugins: [require("stylely")],
+};
 ```
-
-[official docs]: https://github.com/postcss/postcss#usage
